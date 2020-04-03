@@ -131,4 +131,14 @@ describe('fuzzy', function(){
       expect(results[0]).to.eql(searchString);
     });
   });
+
+  describe('.mult', function () {
+    it('should return lists for each pattern filtered', function () {
+      var patterns = ['ab', 'c'];
+      var list = ['aba', 'c', 'cacb'];
+      var result = fuzzy.mult(patterns, list);
+
+      expect(result).to.have.length(2);
+    });
+  });
 });

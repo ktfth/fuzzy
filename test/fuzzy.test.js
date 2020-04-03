@@ -139,6 +139,15 @@ describe('fuzzy', function(){
       var result = fuzzy.mult(patterns, list);
 
       expect(result).to.have.length(2);
+      // verify first result
+      expect(result[0][0].string).to.equal('aba');
+      expect(result[0][0].index).to.equal(0);
+      expect(result[0][0]).to.have.property('score');
+
+      // verify second result
+      expect(result[0][1].string).to.equal('cacb');
+      expect(result[0][1].index).to.equal(2);
+      expect(result[0][1]).to.have.property('score');
     });
   });
 });
